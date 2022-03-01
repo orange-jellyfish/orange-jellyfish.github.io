@@ -1,0 +1,46 @@
+<!-- _includes/person.html -->
+<div class="grid-item">
+  <a href="{{ person.url | relative_url }}">
+    <div class="card hoverable">
+      {%- if person.img and site.show_person_img %} {%- include figure.html
+      path=person.img alt="person thumbnail" -%} {%- endif %}
+      <div class="card-body">
+        <h2 class="card-title text-capitalize">
+          {{ person.nametitle }} {{ person.firstname }} {{ person.lastname }}
+        </h2>
+        <p class="card-text">{{ person.job }}</p>
+        <div class="row ml-1 mr-1 p-0 person-social-icons">
+          {%- if person.website -%}
+          <div>
+            <a href="{{ person.website }}" title="website"
+              ><i class="fas fa-globe"></i
+            ></a>
+          </div>
+          {%- endif %} {%- if person.scholar_userid -%}
+          <div>
+            <a
+              href="https://scholar.google.com/citations?user={{ person.scholar_userid }}"
+              title="Google Scholar"
+              ><i class="ai ai-google-scholar"></i
+            ></a>
+          </div>
+          {% endif %}{%- if person.linkedin_username -%}
+          <div>
+            <a
+              href="https://www.linkedin.com/in/{{ person.linkedin_username }}"
+              title="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+          {%- endif %} {%- if person.github -%}
+          <div>
+            <a href="{{ person.github }}" title="GitHub"
+              ><i class="fab fa-github gh-icon"></i
+            ></a>
+          </div>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
