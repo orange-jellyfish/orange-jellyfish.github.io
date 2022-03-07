@@ -1,14 +1,16 @@
 <!-- _includes/person.html -->
 <div class="grid-item">
   <a href="{{ person.url | relative_url }}">
-    <div class="card hoverable">
-      {%- if person.img and site.show_person_img %} {%- include figure.html
-      path=person.img alt="person thumbnail" -%} {%- endif %}
+    <div class="card">
+      <!-- class="card hoverable" -->
+      {%- if person.img %} {%- include figure.html path=person.img alt="person
+      thumbnail" -%} {%- endif %}
       <div class="card-body">
         <h2 class="card-title text-capitalize">
           {{ person.nametitle }} {{ person.firstname }} {{ person.lastname }}
         </h2>
         <p class="card-text">{{ person.job }}</p>
+        <p class="card-text">{{ person.content }}</p>
         <div class="row ml-1 mr-1 p-0 person-social-icons">
           {%- if person.website -%}
           <div>
