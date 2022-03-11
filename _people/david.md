@@ -3,7 +3,7 @@ layout: person
 firstname: David
 bib_firstname: ["David", "D."]
 lastname: Harrison
-nametitle: Dr
+nametitle: Prof
 importance: 1
 type: collaborator
 job: Professor
