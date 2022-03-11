@@ -18,13 +18,15 @@
       {% if entry.url %}
         <a href="{{entry.url}}" target="blank">
       {% endif %}
-      {% if entry.img %}
-        <img
-          class="img-fluid rounded z-depth-1"
-          src="{{ entry.img | relative_url }}"
-          alt=""
-        />
+      {% assign img = '/assets/img/publications/default.png' %}
+      {% if entry.url %}
+        {% assign img = entry.img %}
       {% endif %}
+      <img
+        class="img-fluid rounded z-depth-1"
+        src="{{ img | relative_url }}"
+        alt=""
+      />
       {% case entry.type %}
         {% when "article" %}
           {% assign venue = entry.journal %}
@@ -48,7 +50,15 @@
     </div>
 
     <div id="{{entry.key}}" class="col-sm-7">
-      <div class="title">{{entry.title}}</div>
+      <div class="title">
+        {% if entry.url %}
+          <a href="{{entry.url}}" target="blank" style="color:black;text-decoration:none;">
+        {% endif %}
+        {{entry.title}}
+        {% if entry.url %}
+          </a>
+        {% endif %}
+      </div>
       <div class="author">
         {% for author in entry.author_array %}
           {% assign coauthor_url = nil %}
